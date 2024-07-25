@@ -5,7 +5,7 @@ Function Send-GraphApiEmail {
         [string]$Recipient,
         [string]$Subject,
         [string]$Body,
-        [string]$From = 'notificationcenter@tripadvisor.com'
+        [string]$From = 'notificationcenter@company.com'
     )
 
     $graphApiEndpoint = "https://graph.microsoft.com/v1.0/users/$($From)/sendMail"
@@ -44,7 +44,7 @@ Function Get-AccessToken {
     param (
         [String]$ClientId,
         [SecureString]$ClientSecret,
-        [String]$TenantId = 'cf3dc8a2-b7cc-4452-848f-cb570a56cfbf'
+        [String]$TenantId = '12234455030303030'
     )
 
     $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($ClientSecret)
@@ -61,10 +61,10 @@ Function Get-AccessToken {
     return $response.access_token
 }
 
-$clientId = '97ac4939-7e06-4106-beb4-3093c227d604'
+$clientId = '126262762862868268628'
 $clientSecret = Get-SavedCredential -UserName notificationcenter -Context 'GraphApi' 
-$recipient = 'mmaher@tripadvisor.com'
-$from = 'notificationcenter@tripadvisor.com'
+$recipient = 'mmaher@company.com'
+$from = 'notificationcenter@company.com'
 
 try {
     # Get the access token
